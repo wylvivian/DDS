@@ -24,7 +24,7 @@ import com.rti.dds.type.builtin.StringTypeSupport;
 
 //****************************************************************************
 public class HelloPublisher {
-    public static final void main(String[] args) {
+    public static final void main(String[] args) throws IOException {
         // Create the DDS Domain participant on domain ID 0
         DomainParticipant participant = DomainParticipantFactory.get_instance().create_participant(
                 0, // Domain ID = 0
@@ -60,15 +60,40 @@ public class HelloPublisher {
             return;
         }
 
+        
         System.out.println("Ready to write data.");
         System.out.println("When the subscriber is ready, you can start writing.");
         System.out.print("Press CTRL+C to terminate or enter an empty line to do a clean shutdown.\n\n");
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        
+       // String toWrite = "123";
+        
+       // System.out.println("Exiting...");
+        
+        //array list 
+        
+        
+        	String  xx =  "arash";
+        	//dataWriter.write(xx, InstanceHandle_t.HANDLE_NIL);
+        	while(xx != "") {
+        		
+        		
+        		dataWriter.write(xx, InstanceHandle_t.HANDLE_NIL);
+        		break;
+        		
+        	}
+        	
+
+        	
+        
+       /* 
+        
         try {
             while (true) {
                 System.out.print("Please type a message> ");
-                String toWrite = reader.readLine();
+                
+               String toWrite =  reader.readLine();
                 if (toWrite == null) break;     // shouldn't happen
                 dataWriter.write(toWrite, InstanceHandle_t.HANDLE_NIL);
                 if (toWrite.equals("")) break;
@@ -84,5 +109,6 @@ public class HelloPublisher {
         System.out.println("Exiting...");
         participant.delete_contained_entities();
         DomainParticipantFactory.get_instance().delete_participant(participant);
-    }
+    }*/
+}
 }
