@@ -65,7 +65,7 @@ public class HelloPublisher {
         System.out.println("When the subscriber is ready, you can start writing.");
         System.out.print("Press CTRL+C to terminate or enter an empty line to do a clean shutdown.\n\n");
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+       // BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         
        // String toWrite = "123";
         
@@ -74,7 +74,7 @@ public class HelloPublisher {
         //array list 
         
         
-        	String  xx =  "arash";
+        	String  xx = "Test";
         	//dataWriter.write(xx, InstanceHandle_t.HANDLE_NIL);
         	while(xx != "") {
         		
