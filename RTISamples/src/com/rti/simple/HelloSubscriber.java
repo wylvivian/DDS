@@ -3,7 +3,9 @@
 //                                                                          
 //         Permission to modify and use for internal purposes granted.      
 // This software is provided "as is", without warranty, express or implied. 
-//                                                                          
+//                                                           
+//           Modified by Wing Yin Vivian Lee , QUT
+//
 // ****************************************************************************
 
 package com.rti.simple;

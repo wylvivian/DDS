@@ -3,14 +3,18 @@
 //                                                                          
 //         Permission to modify and use for internal purposes granted.      
 // This software is provided "as is", without warranty, express or implied. 
-//                                                                          
+//                                                                  
+//           Modified by Wing Yin Vivian Lee , QUT
+//
 // ****************************************************************************
+
 
 package com.rti.simple;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 import com.rti.dds.domain.DomainParticipant;
 import com.rti.dds.domain.DomainParticipantFactory;
@@ -72,9 +76,14 @@ public class HelloPublisher {
        // System.out.println("Exiting...");
         
         //array list 
-        
-        
-        	String  xx = "Test";
+        try {
+			ReadCSV.read();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        String xx = ReadCSV.csvdata();
+       // String xx ="HI!!!!";
         	//dataWriter.write(xx, InstanceHandle_t.HANDLE_NIL);
         	while(xx != "") {
         		
@@ -83,8 +92,6 @@ public class HelloPublisher {
         		break;
         		
         	}
-        	
-
         	
         
        /* 

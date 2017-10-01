@@ -6,14 +6,16 @@ import java.util.*;
 import java.lang.Math;
 
 public class ReadCSV {
+	
+	 public static ArrayList<Double> latitude = new ArrayList<Double>();
+     public static ArrayList<Double> longitude = new ArrayList<Double>();
+     public static Double t = 3.1456778666;
 
-   		//@SuppressWarnings("rawtypes")
-	    public static void main(String[] args) throws Exception {
+	    public static void read() throws Exception {
 	                String splitBy = ",";
 	        BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Vivian\\Documents\\GitHub\\DDS\\data.csv"));
 	        String line = br.readLine();
-	        ArrayList<Double> latitude = new ArrayList<Double>();
-	        ArrayList<Double> longitude = new ArrayList<Double>();
+	       
 	       
 	      
 	        while((line = br.readLine()) !=null){// read the data
@@ -40,12 +42,13 @@ public class ReadCSV {
 	        }
 	        
 	      //Brisbane Convention & Exhibition Centre (-27.476483,153018374, )
-	       // double k = getDistance(-27.476483,153018374,-27.479221, 153.012008);
+	       //double k = getDistance(-27.476483,153018374,-27.479221, 153.012008);
         	//System.out.println(k);// should be less than 1 km ///PROBLEM: VERY LARGE NUMBER
 
 	  }
 	    
 	    //calculate distance between 2 point with latitude and longitude 
+	    //within 2 km
 	    public static double getDistance(double lat1, double lon1, double lat2, double lon2){
 	    	
 	    	 final int R = 6378; // (km) radius of the earth
@@ -58,6 +61,10 @@ public class ReadCSV {
 	    }
 	    
 	    
-	    
+	   public static String csvdata() {   
+		 Double num = latitude.get(0);
+	    String text = Double.toString(num);
+	    	return text;
+	    }
 	    
 	}
