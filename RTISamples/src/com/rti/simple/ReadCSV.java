@@ -12,9 +12,9 @@ public class ReadCSV {
      public static ArrayList<Double> longitude = new ArrayList<Double>();
      public static Double t = 3.1456778666;
 
-	    public static void read() throws Exception {
+	    public static void read(String fileAddress) throws Exception {
 	                String splitBy = ",";
-	        BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Vivian\\Documents\\GitHub\\DDS\\data.csv"));
+	        BufferedReader br = new BufferedReader(new FileReader(fileAddress));
 	        String line = br.readLine();
 	       
 	       

@@ -77,7 +77,7 @@ public class HelloPublisher {
         
         //array list 
         try {
-			ReadCSV.read();
+			ReadCSV.read("C:\\Users\\Vivian\\Documents\\GitHub\\DDS\\data.csv");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
