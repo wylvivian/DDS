@@ -61,10 +61,10 @@ public class ReadCSV {
 	    }
 	    
 	    
-	   public static String csvdata() {   
-		 Double num = latitude.get(0);
-	    String text = Double.toString(num);
-	    	return text;
+	   public static ArrayList<Double> csvdata() {   
+		// Double num = latitude.get(0);
+	    //String text = Double.toString(num);
+	    	return latitude;
 	    }
 	    
 	}

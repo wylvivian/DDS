@@ -82,13 +82,14 @@ public class HelloPublisher {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        String xx = ReadCSV.csvdata();
-       // String xx ="HI!!!!";
-        	//dataWriter.write(xx, InstanceHandle_t.HANDLE_NIL);
-        	while(xx != "") {
+        ArrayList<Double> latList = ReadCSV.csvdata();
+
+        	while(latList.get(0) != null) {
         		
+        		 for (int x = 0; x < latList.size(); x++) {
+        		dataWriter.write(Double.toString(latList.get(x)), InstanceHandle_t.HANDLE_NIL);
         		
-        		dataWriter.write(xx, InstanceHandle_t.HANDLE_NIL);
+        		 }
         		break;
         		
         	}
