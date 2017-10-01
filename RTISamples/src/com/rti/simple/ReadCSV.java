@@ -7,7 +7,8 @@ import java.lang.Math;
 
 public class ReadCSV {
 	
-	 public static ArrayList<Double> latitude = new ArrayList<Double>();
+	public static ArrayList<Vehicle> Vehicles = new ArrayList<Vehicle>();
+	public static ArrayList<Double> latitude = new ArrayList<Double>();
      public static ArrayList<Double> longitude = new ArrayList<Double>();
      public static Double t = 3.1456778666;
 
@@ -24,8 +25,8 @@ public class ReadCSV {
 	            
 	             if (Double.parseDouble(min)<5)//within 5 mins
 	             {
-	            	 latitude.add(Double.parseDouble(b[3]));
-		             longitude.add(Double.parseDouble(b[4]));
+	            	 Vehicle car = new Vehicle(Integer.parseInt(b[0]),b[2],Double.parseDouble(b[3]),Double.parseDouble(b[4]));
+	            	 Vehicles.add(car);
 	            	 
 	             }else {
 	            	 break;
@@ -35,10 +36,10 @@ public class ReadCSV {
 	        br.close();
 	        
 	        
-	        for (int x = 0; x < latitude.size(); x++) {
+	        for (int x = 0; x < Vehicles.size(); x++) {
 	        	
 	        	
-	        	System.out.println("Record ("+x+") : Latitude-"+latitude.get(x)+" Longitude-"+longitude.get(x));
+	        	System.out.println("Record ("+x+") - id: "+Vehicles.get(x).id +" time:"+Vehicles.get(x).time+" latitude:" + Vehicles.get(x).lat+" longitude:"+Vehicles.get(x).lon);
 	        }
 	        
 	      //Brisbane Convention & Exhibition Centre (-27.476483,153018374, )
@@ -61,10 +62,10 @@ public class ReadCSV {
 	    }
 	    
 	    
-	   public static ArrayList<Double> csvdata() {   
+	   public static ArrayList<Vehicle> csvdata() {   
 		// Double num = latitude.get(0);
 	    //String text = Double.toString(num);
-	    	return latitude;
+	    	return Vehicles;
 	    }
 	    
 	}

@@ -82,12 +82,13 @@ public class HelloPublisher {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        ArrayList<Double> latList = ReadCSV.csvdata();
+        ArrayList<Vehicle> CarList = ReadCSV.csvdata();
 
-        	while(latList.get(0) != null) {
+        	while(CarList.get(0) != null) {
         		
-        		 for (int x = 0; x < latList.size(); x++) {
-        		dataWriter.write(Double.toString(latList.get(x)), InstanceHandle_t.HANDLE_NIL);
+        		 for (int x = 0; x < CarList.size(); x++) {
+        			 String text = "Record ("+x+") - id: "+Integer.toString(CarList.get(x).id)+" time:"+ CarList.get(x).time+" latitude:"+ Double.toString(CarList.get(x).lat)+" longitude:"+ Double .toString(CarList.get(x).lon);
+        		dataWriter.write(text, InstanceHandle_t.HANDLE_NIL);
         		
         		 }
         		break;
