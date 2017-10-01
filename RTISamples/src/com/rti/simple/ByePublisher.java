@@ -24,7 +24,7 @@ import com.rti.dds.type.builtin.StringDataWriter;
 import com.rti.dds.type.builtin.StringTypeSupport;
 
 //****************************************************************************
-public class HelloPublisher {
+public class ByePublisher {
     public static final void main(String[] args) throws IOException {
         // Create the DDS Domain participant on domain ID 0
         DomainParticipant participant = DomainParticipantFactory.get_instance().create_participant(
@@ -39,7 +39,7 @@ public class HelloPublisher {
 
         // Create the topic "Hello World" for the String type
         Topic topic = participant.create_topic(
-                "Hello, World", 
+                 "Bye, World", 
                 StringTypeSupport.get_type_name(), 
                 DomainParticipant.TOPIC_QOS_DEFAULT, 
                 null, // listener
@@ -74,7 +74,7 @@ public class HelloPublisher {
         
         //array list 
         try {
-			ReadCSV.read("C:\\Users\\Vivian\\Documents\\GitHub\\DDS\\data.csv");
+			ReadCSV.read("C:\\Users\\Vivian\\Documents\\GitHub\\DDS\\RTISamples\\1.csv");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -26,7 +26,7 @@ import com.rti.dds.type.builtin.StringDataReader;
 import com.rti.dds.type.builtin.StringTypeSupport;
 
 //****************************************************************************
-public class HelloSubscriber extends DataReaderAdapter {
+public class ByeSubscriber extends DataReaderAdapter {
 
     // For clean shutdown sequence
     private static boolean shutdown_flag = false;
@@ -60,7 +60,7 @@ public class HelloSubscriber extends DataReaderAdapter {
             (StringDataReader) participant.create_datareader(
                 topic, 
                 Subscriber.DATAREADER_QOS_DEFAULT,
-                new HelloSubscriber(),         // Listener
+                new ByeSubscriber(),         // Listener
                 StatusKind.DATA_AVAILABLE_STATUS);
         if (dataReader == null) {
             System.err.println("Unable to create DDS Data Reader");
@@ -100,21 +100,21 @@ public class HelloSubscriber extends DataReaderAdapter {
                 
                 if (info.valid_data) {
                     
-                    String[] sampleList= sample.split("/");
-                    System.out.println("###");
-                    for (int x=0; x<sampleList.length;x++) {
-                    System.out.println(sampleList[x]);
-                    Vehicle car= new Vehicle(Integer.parseInt(sampleList[0]),sampleList[1],sampleList[2],Double.parseDouble(sampleList[3]),Double.parseDouble(sampleList[4]));
-                    Vehicles.add(car);
+                    //String[] sampleList= sample.split("/");
+                    System.out.println("###"+sample);
+                   // for (int x=0; x<sampleList.length;x++) {
+                    //System.out.println(sampleList[x]);
+                    //Vehicle car= new Vehicle(Integer.parseInt(sampleList[0]),sampleList[1],sampleList[2],Double.parseDouble(sampleList[3]),Double.parseDouble(sampleList[4]));
+                    //Vehicles.add(car);
                     
-                    }
+                    //}
                     
-                    try {
+                   /* try {
                     	WriteCSV.write(Vehicles, "1.csv");
             		} catch (Exception e) {
             			// TODO Auto-generated catch block
             			e.printStackTrace();
-            		}
+            		}*/
                     
                     
                     if (sample.equals("")) {
