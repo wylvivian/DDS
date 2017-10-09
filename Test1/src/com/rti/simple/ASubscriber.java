@@ -9,7 +9,7 @@
 //                  
 // ****************************************************************************
 
-/* Introduction: this class is to subscribe the "topic B" data and output it in the console*/
+/* Introduction: this class is to subscribe the "topic A" data and output it in the console*/
 
 //DDS package
 package com.rti.simple;
@@ -46,7 +46,7 @@ public class ASubscriber extends DataReaderAdapter {
             return;
         }
 
-        // Create the topic "Topic B" for the String type
+        // Create the topic "Topic A" for the String type
         Topic topic = participant.create_topic(
                 "Topic A", 
                 StringTypeSupport.get_type_name(), 
