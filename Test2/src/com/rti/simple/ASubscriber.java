@@ -105,11 +105,11 @@ public class ASubscriber extends DataReaderAdapter {
                     String[] sampleList= sample.split("/");// split the data in a array list
                     //output the data in the console
                     System.out.println("###"+sample);
-                    for (int x=0; x<sampleList.length;x++) {//go through all vehicle
+                    //for (int x=0; x<sampleList.length;x++) {//go through all vehicle
                     Vehicle car= new Vehicle(Integer.parseInt(sampleList[0]),sampleList[1],sampleList[2],Double.parseDouble(sampleList[3]),Double.parseDouble(sampleList[4]));
                     Vehicles.add(car);
                     
-                    }
+                    //}
                     
                     try {
                     	WriteCSV.write(Vehicles, "TopicA.csv");//write the csv file
