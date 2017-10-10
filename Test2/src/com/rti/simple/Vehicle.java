@@ -1,17 +1,3 @@
-// ****************************************************************************
-//                           QUT Master of IT         
-//                           IFN701 Project 1
-//         Internet of Things DDS Protocol for Connected Vehicles
-//                     by Wing Yin Vivian Lee n9004548
-//
-//                       Supervisor: Yanming Feng 
-//                   Project Coordinator: Charles Wang
-//                  
-// ****************************************************************************
-
-/* Introduction: this class is to construct the vehicle object*/
-
-//DDS package
 package com.rti.simple;
 
 public class Vehicle {

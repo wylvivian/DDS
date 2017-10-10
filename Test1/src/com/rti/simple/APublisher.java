@@ -87,7 +87,7 @@ public class APublisher {
         		 for (int x = 0; x < CarList.size(); x++) {// go through every vehicle in the arraylist
         			 String text = Integer.toString(CarList.get(x).id)+"/"+ CarList.get(x).status+"/"+CarList.get(x).time+"/"+ Double.toString(CarList.get(x).lat)+"/"+ Double .toString(CarList.get(x).lon);
       
-        			 dataWriter.write(text, InstanceHandle_t.HANDLE_NIL);// use the datawriter to write data to push
+        			 dataWriter.write(text, InstanceHandle_t.HANDLE_NIL);// use the datawriter to write data to pub
         		
         		 }
         		break;

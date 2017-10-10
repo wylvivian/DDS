@@ -9,13 +9,10 @@
 //                  
 // ****************************************************************************
 
-/* Introduction: this class is to subscribe the "topic A" data and write it in a csv file*/
+/* Introduction: this class is to subscribe the "topic B" data and output it in the console*/
 
 //DDS package
 package com.rti.simple;
-
-//java library for write data
-import java.util.ArrayList;
 
 //DDS library
 import com.rti.dds.domain.DomainParticipant;
@@ -32,7 +29,7 @@ import com.rti.dds.type.builtin.StringDataReader;
 import com.rti.dds.type.builtin.StringTypeSupport;
 
 //****************************************************************************
-public class ASubscriber extends DataReaderAdapter {
+public class BSubscriber extends DataReaderAdapter {
 
     // For clean shutdown sequence
     private static boolean shutdown_flag = false;
@@ -49,9 +46,9 @@ public class ASubscriber extends DataReaderAdapter {
             return;
         }
 
-        // Create the topic "Topic A" for the String type
+        // Create the topic "Topic B" for the String type
         Topic topic = participant.create_topic(
-                "Topic A", 
+                "Topic B", 
                 StringTypeSupport.get_type_name(), 
                 DomainParticipant.TOPIC_QOS_DEFAULT, 
                 null, // listener
@@ -66,7 +63,7 @@ public class ASubscriber extends DataReaderAdapter {
             (StringDataReader) participant.create_datareader(
                 topic, 
                 Subscriber.DATAREADER_QOS_DEFAULT,
-                new ASubscriber(),         // Listener
+                new BSubscriber(),         // Listener
                 StatusKind.DATA_AVAILABLE_STATUS);
         if (dataReader == null) {
             System.err.println("Unable to create DDS Data Reader");
@@ -75,7 +72,8 @@ public class ASubscriber extends DataReaderAdapter {
 
         System.out.println("Ready to read data.");
         System.out.println("Press CTRL+C to terminate.");
-        //subscriber of "Topic B" needs to subscribe "Topic B"
+      //subscriber of "Topic B" needs to subscribe "Topic B"
+        
         for (;;) {
             try {
                 Thread.sleep(2000);
@@ -90,8 +88,6 @@ public class ASubscriber extends DataReaderAdapter {
         DomainParticipantFactory.get_instance().delete_participant(participant);
     }
 
-    //create a vehicle object arraylist to store the data
-    ArrayList<Vehicle> Vehicles = new ArrayList<Vehicle>();
     //get called back by DDS when one or more data samples have been received.
     public void on_data_available(DataReader reader) {
         StringDataReader stringReader = (StringDataReader) reader;
@@ -102,23 +98,8 @@ public class ASubscriber extends DataReaderAdapter {
                 
                 if (info.valid_data) {
                     
-                    String[] sampleList= sample.split("/");// split the data in a array list
-                    //output the data in the console
+                	//output the data in the console
                     System.out.println("###"+sample);
-                    for (int x=0; x<sampleList.length;x++) {//go through all vehicle
-                    Vehicle car= new Vehicle(Integer.parseInt(sampleList[0]),sampleList[1],sampleList[2],Double.parseDouble(sampleList[3]),Double.parseDouble(sampleList[4]));
-                    Vehicles.add(car);
-                    
-                    }
-                    
-                    try {
-                    	WriteCSV.write(Vehicles, "TopicA.csv");//write the csv file
-            		} catch (Exception e) {
-            			// TODO Auto-generated catch block
-            			e.printStackTrace();
-            		}
-                    
-                    
                     if (sample.equals("")) {
                         shutdown_flag = true;
                     }

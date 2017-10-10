@@ -9,7 +9,7 @@
 //                  
 // ****************************************************************************
 
-/* Introduction: this class is to publish the "topic A" data by read data from a csv file*/
+/* Introduction: this class is to publish the "topic B" data by read data from the csv file that stores "topic A*/
 
 //DDS package
 package com.rti.simple;
@@ -29,7 +29,7 @@ import com.rti.dds.type.builtin.StringDataWriter;
 import com.rti.dds.type.builtin.StringTypeSupport;
 
 //****************************************************************************
-public class APublisher {
+public class BPublisher {
     public static final void main(String[] args) throws IOException {
         // Create the DDS Domain participant on domain ID 0
         DomainParticipant participant = DomainParticipantFactory.get_instance().create_participant(
@@ -42,9 +42,9 @@ public class APublisher {
             return;
         }
 
-        // Create the topic "Topic A" for the String type
+        // Create the topic ""Topic B" for the String type
         Topic topic = participant.create_topic(
-                "Topic A", 
+                 "Topic B", 
                 StringTypeSupport.get_type_name(), 
                 DomainParticipant.TOPIC_QOS_DEFAULT, 
                 null, // listener
@@ -74,7 +74,7 @@ public class APublisher {
 
         //read the data in csv file to the format of vehicle object array list 
         try {
-			ReadCSV.read("C:\\Users\\Vivian\\Documents\\GitHub\\DDS\\data.csv");
+			ReadCSV.read("C:\\Users\\Vivian\\Documents\\GitHub\\DDS\\Test2\\TopicA.csv");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -83,7 +83,7 @@ public class APublisher {
         //get the data in the format of vehicle object array list
         ArrayList<Vehicle> CarList = ReadCSV.csvdata();
 
-        	while(CarList.get(0) != null) {// receive the data 
+        	while(CarList.get(0) != null) {// receive the data
         		
         		 for (int x = 0; x < CarList.size(); x++) {// go through every vehicle in the arraylist
         			 String text = Integer.toString(CarList.get(x).id)+"/"+ CarList.get(x).status+"/"+CarList.get(x).time+"/"+ Double.toString(CarList.get(x).lat)+"/"+ Double .toString(CarList.get(x).lon);
@@ -94,7 +94,7 @@ public class APublisher {
         		break;
         		
         	}
-        	        
-      
+        	
+            
 }
 }
